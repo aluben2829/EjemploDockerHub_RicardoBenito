@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment{
-        DOCKERHUB_CREDS = credentials('dockerhub')
+        DOCKERHUB_CREDS = credentials('DockerHub')
     }
     stages {
         stage('Clone Repo') {
@@ -13,7 +13,7 @@ pipeline {
         stage('Build Image') {
             steps {
                 //Aquí debes poner tu repositorio de dockerhub
-		sh 'docker build -t peseca/ejemplodockerhub . '
+		sh 'docker build -t aluben2829/ejemplodockerhub_ricardobenito . '
             }
         }
         stage('DockerHUB Login') {
@@ -25,7 +25,7 @@ pipeline {
         stage('Docker Push') {
             steps {
 		//Aquí debes poner tu DockerHub
-                sh 'docker push peseca/ejemplodockerhub'
+                sh 'docker push aluben2829/ejemplodockerhub_ricardobenito:tagname'
                 }
             }
         }
