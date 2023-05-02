@@ -25,6 +25,7 @@ pipeline {
         stage('Docker Push') {
             steps {
 		//Aquí debes poner tu DockerHub
+		sh 'docker tag aluben2829/ejemplodockerhub_ricardobenito aluben2829/ejemplodockerhub_ricardobenito'
                 sh 'docker push aluben2829/ejemplodockerhub_ricardobenito:tagname'
                 }
             }
